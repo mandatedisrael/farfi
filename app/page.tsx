@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   other: {
     'fc:frame': 'vNext',
     'fc:frame:image': `${baseUrl}/api/image`,
+    'fc:frame:image:aspect_ratio': '1:1',
     'fc:frame:button:1': 'View DeFi Insights',
     'fc:frame:button:2': 'Connect Wallet',
     'fc:frame:post_url': `${baseUrl}/api/frame`,
