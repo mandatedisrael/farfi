@@ -1,0 +1,31 @@
+{
+  "miniapp": {
+    "version": "1",
+    "name": "FARFI",
+    "iconUrl": "https://farfi.vercel.app/api/icon",
+    "homeUrl": "https://farfi.vercel.app/frame",
+    "imageUrl": "https://farfi.vercel.app/api/image",
+    "buttonTitle": "View DeFi Insights",
+    "subtitle": "Social DeFi Insights",
+    "description": "Discover what DeFi protocols your Farcaster friends are using. Get insights into trending protocols and social DeFi activity within your network.",
+    "primaryCategory": "finance",
+    "tags": [
+      "defi",
+      "social", 
+      "farcaster",
+      "insights",
+      "base"
+    ],
+    "tagline": "Social DeFi Discovery",
+    "ogTitle": "FARFI - Social DeFi Insights",
+    "ogDescription": "Discover what DeFi protocols your Farcaster friends are using",
+    "ogImageUrl": "https://farfi.vercel.app/api/image",
+    "requiredChains": [
+      "eip155:8453"
+    ],
+    "requiredCapabilities": [
+      "actions.signIn",
+      "wallet.getEthereumProvider"
+    ]
+  }
+} 
