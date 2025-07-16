@@ -1,15 +1,15 @@
 'use client';
 
-import { base } from 'viem/chains';
+import { baseSepolia } from 'viem/chains';
 import { OnchainKitProvider } from '@coinbase/onchainkit';
 import { WagmiProvider, createConfig, http } from 'wagmi';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import type { ReactNode } from 'react';
 
 const config = createConfig({
-  chains: [base],
+  chains: [baseSepolia],
   transports: {
-    [base.id]: http(),
+    [baseSepolia.id]: http(),
   },
 });
 
@@ -21,7 +21,7 @@ export function Providers(props: { children: ReactNode }) {
       <QueryClientProvider client={queryClient}>
         <OnchainKitProvider
           apiKey={process.env.NEXT_PUBLIC_ONCHAINKIT_API_KEY}
-          chain={base}
+          chain={baseSepolia}
           config={{ 
             appearance: { 
               mode: 'auto',
