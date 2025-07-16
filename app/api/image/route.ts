@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const action = searchParams.get('action') || 'home';
+  const _action = searchParams.get('action') || 'home';
   
   // For now, return a simple SVG image
-  // Later we can integrate dynamic image generation
+  // Later we can integrate dynamic image generation based on action
   const svg = `
     <svg width="600" height="600" xmlns="http://www.w3.org/2000/svg">
       <defs>
