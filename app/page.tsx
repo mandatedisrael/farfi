@@ -21,7 +21,6 @@ import {
   TransactionStatus,
   TransactionStatusAction,
   TransactionStatusLabel,
-  TransactionToast,
 } from '@coinbase/onchainkit/transaction';
 import { useState } from 'react';
 import { parseEther } from 'viem';
@@ -131,22 +130,30 @@ export default function App() {
                 />
               </div>
 
-              <Transaction
-                calls={calls}
-                className="w-full"
-                chainId={84532} // Base Sepolia testnet
-              >
-                <TransactionButton
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md disabled:opacity-50"
-                  disabled={!toAddress || !amount}
-                  text="Send Transaction"
-                />
-                <TransactionStatus>
-                  <TransactionStatusLabel />
-                  <TransactionStatusAction />
-                </TransactionStatus>
-                <TransactionSponsor />
-              </Transaction>
+              {toAddress && amount ? (
+                <Transaction
+                  calls={calls}
+                  className="w-full"
+                  chainId={84532} // Base Sepolia testnet
+                >
+                  <TransactionButton
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-md"
+                    text="Send Transaction"
+                  />
+                  <TransactionStatus>
+                    <TransactionStatusLabel />
+                    <TransactionStatusAction />
+                  </TransactionStatus>
+                  <TransactionSponsor />
+                </Transaction>
+              ) : (
+                <button
+                  className="w-full bg-gray-400 text-white font-bold py-3 px-4 rounded-md cursor-not-allowed"
+                  disabled
+                >
+                  Enter address and amount to send
+                </button>
+              )}
             </div>
             
             <div className="mt-4 text-sm text-gray-600 dark:text-gray-400">
@@ -207,8 +214,6 @@ export default function App() {
           </div>
         </div>
       </main>
-      
-      <TransactionToast />
     </div>
   );
 }
