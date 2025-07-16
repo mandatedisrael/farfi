@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-async function getResponse(_req: NextRequest): Promise<NextResponse> {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+async function getResponse(req: NextRequest): Promise<NextResponse> {
   const baseUrl = process.env.NEXT_PUBLIC_URL || 'http://localhost:3000';
   
   // For now, create a simple frame response

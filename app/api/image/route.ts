@@ -2,7 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
-  const _action = searchParams.get('action') || 'home';
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const action = searchParams.get('action') || 'home';
   
   // For now, return a simple SVG image
   // Later we can integrate dynamic image generation based on action
