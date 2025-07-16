@@ -1,4 +1,9 @@
 {
+  "accountAssociation": {
+    "header": "eyJmaWQiOjExExMTg5MTAsInR5cGUiOiJjdXN0b2R5Iiwia2V5IjoiMHgxZThkZTcwRjEzNzNiOWFmN0Y2MDAwMDYyOGNkZjgwNjU3ZjY4NmI5In0",
+    "payload": "eyJkb21haW4iOiJmYXJmaS52ZXJjZWwuYXBwIn0",
+    "signature": "JDDzbEQafjB33DhHcJtIH1t"
+  },
   "miniapp": {
     "version": "1",
     "name": "FARFI",
