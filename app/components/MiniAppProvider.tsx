@@ -6,27 +6,19 @@ export default function MiniAppProvider({ children }: { children: React.ReactNod
   useEffect(() => {
     const initMiniApp = async () => {
       try {
-        // Check if we're in a Mini App environment
-        const url = new URL(window.location.href);
-        const isMiniApp = url.pathname.includes('/frame') || 
-                         url.searchParams.get('miniApp') === 'true' ||
-                         window.parent !== window;
-
-        if (isMiniApp) {
-          // Dynamically import the SDK only in Mini App context
-          const { sdk } = await import('@farcaster/miniapp-sdk');
-          
-          // Initialize the SDK
-          await sdk.actions.ready();
-          console.log('Mini App SDK initialized successfully');
-        }
+        // Always try to import and call ready in client-side context
+        const { sdk } = await import('@farcaster/miniapp-sdk');
+        await sdk.actions.ready();
+        console.log('✅ Mini App SDK: ready() called');
       } catch (error) {
-        console.error('Failed to initialize Mini App SDK:', error);
-        // Fallback: still show content even if SDK fails
+        console.error('❌ Mini App SDK initialization failed:', error);
       }
     };
 
-    initMiniApp();
+    // Only run on client
+    if (typeof window !== 'undefined') {
+      initMiniApp();
+    }
   }, []);
 
   return <>{children}</>;
